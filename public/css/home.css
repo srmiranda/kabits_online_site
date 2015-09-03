@@ -1,0 +1,22 @@
+body {
+
+}
+
+#task_list {
+  margin-right: 0px;
+  padding-right: 0px;
+  margin-left: 25px;
+  float: left;
+}
+
+#graph {
+  margin-right: 0px;
+  padding-left: 0px;
+}
+
+table tr td {
+  font-size: 15pt;
+  font-weight: bolder;
+  padding-left: 25px;
+  color: #33CC33;
+}

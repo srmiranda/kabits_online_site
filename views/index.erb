@@ -1,0 +1,72 @@
+<div class="medium-6 columns">
+  <table id="task_list">
+    <th></th>
+    <% list.each do |item| %>
+      <tr>
+        <td><a href="/list/<%= item["id"] %>"><%= item["activity"] %></a></td>
+        <td><form method="post" action="/list/<%= item["id"] %>"><input type="hidden" name="_method" value="DELETE"><input class="button tiny round" type=submit value="DONE!" style="width:100%"></form></td>
+        <!-- <td><a class="button tiny round" id="update_button" href="/list/<%= item["id"] %>/edit">Update</a> -->
+      </tr>
+    <% end %>
+  </table>
+  <form id="new_task_form" class="large-8 columns" action="/list" method="post">
+    <fieldset>
+      <legend>Add A New Task</legend>
+
+      <label for="list">Task</label>
+        <input type="text" id="list" placeholder="New Task" name="list">
+        <input type="submit" value="Add" />
+      </label>
+    </fieldset>
+  </form>
+</div>
+<div class="medium-6 columns">
+  <div id="graph" style="min-width: 400px; max-width: 400px; height: 400px; margin: 0 auto"></div>
+</div>
+<script>
+$(function () {
+    $('#graph').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Kabits Weekly Progress'
+        },
+        subtitle: {
+        },
+        xAxis: {
+            categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Tasks Completed',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ''
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'This week',
+            data: [15, 17, 12, 18, 12, 14, 19]
+        }]
+    });
+});
+</script>

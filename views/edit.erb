@@ -1,0 +1,16 @@
+
+<div class="banner">
+  Edit Item
+  <img src="http://www.bootcamps.in/wp-content/uploads/2013/01/Launch_Academy_Logo.jpg">
+</div>
+<div class="container">
+  <h2><%= item["name"] %></h2>
+<form action="/groceries/<%= item["id"] %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+<label for="groceries">Change Item Name:</label>
+<input type="text" value="<%= item["name"] %>" id="groceries" name="grocery">
+Change Amount:
+<input type="text" id="quantity" name="amount">
+<input type="submit" value="Add" />
+</form>
+</div>

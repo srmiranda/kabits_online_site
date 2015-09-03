@@ -1,0 +1,20 @@
+<h1><%= item["name"] %></h1>
+<h3>Amount: <%= item["amount"] %></h3>
+<h4>Comments:</h4>
+<table>
+ <% comments.each do |comment| %>
+ <tr>
+  <td><%= comment["comment"] %></td>
+ </tr>
+<% end %>
+</table>
+<div class="comment">
+<form action="/groceries/<%= item['id'] %>/comments" method="post">
+  <label for="grocery_comments">Add A Comment:</label>
+  <input type="text" id="grocery_comments" name="comment" required>
+  <input type="submit" value="Submit" />
+</form>
+</div>
+<p>
+ <b><a href="/groceries">Back to the Grocery List</a></b>
+</p>
